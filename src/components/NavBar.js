@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import {Navbar,Container,Nav,NavDropdown,Form,FormControl,Button } from 'react-bootstrap'
+import {Navbar,Container,Nav,Form,FormControl,Button } from 'react-bootstrap'
 import ReactStars from "react-rating-stars-component";
+import { Link } from "react-router-dom";
 
 
 function NavBar({filter}) {
@@ -19,19 +20,11 @@ function NavBar({filter}) {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link href="#action1">Home</Nav.Link>
-                        <Nav.Link href="#action2">Link</Nav.Link>
-                        <NavDropdown title="Link" id="navbarScrollingDropdown">
-                        <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action5">
-                            Something else here
-                        </NavDropdown.Item>
-                        </NavDropdown>
-                        <Nav.Link href="#" disabled>
-                        Link
-                        </Nav.Link>
+                        <Link to="/">Home</Link>
+                        <Link to="/about-us">About-us</Link>
+                        <Link to="/contact-us">Contact-us</Link>
+
+                        
                     </Nav>
                     <ReactStars
                         count={5}

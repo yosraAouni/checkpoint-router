@@ -6,6 +6,13 @@ import ListOfMovies from './components/ListOfMovies';
 import { moviesData } from './data';
 import AddNewMovie from './components/AddNewMovie';
 import { useState } from 'react';
+import {
+  Routes,
+  Route
+} from "react-router-dom";
+import AboutUs from './screens/AboutUs';
+import ContactUs from './screens/ContactUs';
+import MovieDetails from './screens/MovieDetails';
 
 function App() {
   const [Movies,setMovies] = useState(moviesData)
@@ -18,8 +25,20 @@ function App() {
   return (
     <div className="App">
       <NavBar filter={filteringMovies}/> 
-      <AddNewMovie fun={addingNewMovie}/>
-      <ListOfMovies movies={Movies}/>
+      <Routes>
+      <Route path="/" element={<> <AddNewMovie fun={addingNewMovie}/> <ListOfMovies movies={Movies}/> </>  }/>
+      <Route path="/about-us" element={<AboutUs/>}/>
+      <Route path="/contact-us" element={< ContactUs/>}/>
+      <Route path=":variable" element={< MovieDetails/>}/>
+
+
+
+      
+
+      </Routes>
+
+
+      
     </div>
   );
 }
